@@ -1,0 +1,124 @@
+docker安装请查看docker官网
+
+
+大海--------------宿主机(系统linux/windows/macos)
+鲸鱼--------------docker
+集装箱------------容器实例
+
+CONTAINER----容器ID
+IMAGE--------镜像
+
+---docker阿里云镜像仓库代理
+{
+  "registry-mirrors": ["https://031efyak.mirror.aliyuncs.com"]
+  
+}
+
+
+--启动docker
+
+systemctl start docker
+
+---重启docker 
+systemctl restart docker
+
+--停止docker
+
+systemctl stop docker
+
+
+
+
+------------------------------------镜像命令-----------------------------------
+--查看docker信息
+docker info/version
+
+--docker帮助命令
+docker --help
+
+
+
+--查看宿主机上所有的docker镜像
+docker images
+
+--查找镜像从仓库查找
+docker search -s 30 (星数超过30) 镜像名称  docker search -s 30 tomcat
+
+--删除镜像
+docker rmi -f 镜像名称(ID)  (-f 强制删除) docker rmi -f hello-world tomcat(多个删除)
+
+--删除全部镜像
+docker rmi -f $(docker image -q)
+
+----------------------------------------容器命令-------------------------------------
+
+--新建并启动容器
+  --name 为容器重新起一个名字
+  -d 后台运行容器 返回容器id (启动守护式容器)
+  -i 交互式启动容器
+  -t 为容器重新分配一个伪终端
+  -p 随机端口映射
+
+docker run -it 镜像名称或者ID
+
+--列出当前所有正在运行的容器
+-a 当前运行的容器+历史上运行过的容器
+-l 显示最近创建的容器
+-n 最近n个创建的容器
+-q 静默模式，只显示容器编号
+-no-trunc 不截断输出
+docker ps -a
+
+--退出容器
+ 1 exit 容器停止并退出
+ 
+ 2 ctrl+p+q 容器不停止退出
+
+
+
+--启动容器
+docker start 镜像ID
+
+--守护进程方式启动容器
+
+
+
+--重启容器
+
+docker restart 镜像ID
+
+--停止容器 
+
+docker stop 镜像ID
+
+--强制停止容器
+
+docker kill 镜像ID
+
+--删除已停止容器
+docker rm -f 镜像ID
+
+
+--查看容器日志
+  -t 时间戳
+  -f 跟随最新的日志打印
+  -tail 数字显示最后多少条
+docker logs 容器ID
+
+--查看容器内的进程
+
+docker top 容器ID
+
+--查看容器内部细节
+docker inspect 容器ID
+
+--进入正在运行的容器并命令行交互
+
+docker exec -it 容器ID bashShell   在容器中打开新的进程,并且可以启动新的进程
+
+docker attach 容器ID 直接进入容器终端 不会启动新的进程
+
+
+--从容器内拷贝文件到宿主机上
+
+docker cp 容器ID:容器内路径 目的主机命令
