@@ -5,5 +5,25 @@
 	<select id="demo" resultType="map">
 		select * from integral_customer
 	</select>
-
+	
+	<resultMap type="com.mode.SysUser" id="sysUser">
+		<id column="id"  property="id"/>
+		<result column="myname"  property="name"/>
+		<result column="username"  property="userName"/>
+		<result column="pwd"  property="pwd"/>
+	</resultMap>
+	
+	
+	<select id="findByUserName" parameterType="String" resultMap="sysUser">
+		select id,myname name,userName,pwd from sys_user 
+		<where>
+			<if test=" userName !='' and userName !=null">
+				username=#{userName}
+			</if>
+		</where>
+	</select>
+	
+	<update id="updateById">
+		update sys_user set pwd=12 where id=1 
+	</update>
 </mapper>
