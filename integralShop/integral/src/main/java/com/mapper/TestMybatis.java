@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TestMybatis {
 	
 	public Map<String,Object> demo();
+
+	public void insertCity(Map<String,Object> map);
  }
