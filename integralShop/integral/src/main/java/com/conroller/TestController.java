@@ -3,9 +3,12 @@ package com.conroller;
 import java.util.Map;
 
 import com.mapper.TestMybatis;
+import com.mode.Result;
+import com.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.TestInteface;
@@ -19,6 +22,9 @@ public class TestController {
 	private TestInteface test;
 
 	@Autowired
+	private CityService cityService;
+
+	@Autowired
 	private TestMybatis testMybatis;
 	
 	@GetMapping("/test")
@@ -30,5 +36,11 @@ public class TestController {
 	@GetMapping("/insert")
 	public void insert(){
 		test.inserCityService();
+	}
+
+	@GetMapping("/getWeaterURL")
+	public Result getWeatherURL(@RequestParam String cityName){
+
+		return cityService.findCityByCityName(cityName);
 	}
 }
