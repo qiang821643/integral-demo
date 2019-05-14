@@ -12,20 +12,20 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   application:
-    name: integral-server
+    name: integral-service
     
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 logging:
-  level: 
-    com.mapper.TestMybatis: debug
+  level:
+    com.mapper.TestMybatis: info
     
 eureka:
   instance:
     prefer-ip-address: true #使用ip地址注册
     instance-id: integralService:${spring.cloud.client.ip-address}:${server.port} ##使用服务的ip地址和端口后注册
     ##客户端向服务端发送的时间间隔为 单位秒
-    lease-renewal-interval-in-seconds: 500
+    lease-renewal-interval-in-seconds: 5000
     ##服务端收到最后一次心跳等待时间上限 单位秒
     lease-expiration-duration-in-seconds: 5
   client:

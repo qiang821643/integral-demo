@@ -1,5 +1,6 @@
 package com.conroller;
 
+import java.util.List;
 import java.util.Map;
 
 import com.mapper.TestMybatis;
@@ -28,7 +29,7 @@ public class TestController {
 	private TestMybatis testMybatis;
 	
 	@GetMapping("/test")
-	public Map<String,Object> test(){
+	public List<Map<String,Object>> test(){
 		
 		return test.test();
 	}
@@ -40,7 +41,7 @@ public class TestController {
 
 	@GetMapping("/getWeaterURL")
 	public Result getWeatherURL(@RequestParam String cityName){
-
+		System.out.println(cityName);
 		return cityService.findCityByCityName(cityName);
 	}
 }

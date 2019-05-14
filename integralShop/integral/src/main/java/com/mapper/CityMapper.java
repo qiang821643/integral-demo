@@ -1,6 +1,8 @@
 package com.mapper;
 
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,5 +14,5 @@ import java.util.Map;
  **/
 public interface CityMapper {
 
-    public List<Map<String,Object>> findCityByCityName(String cityName);
+    public List<Map<String,Object>> findCityByCityName(@Param("cityName") String cityName);
 }

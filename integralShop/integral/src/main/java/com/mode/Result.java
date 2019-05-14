@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class Result {
 
-    private ResultCodeEnum code;
+    private int code;
 
     private Object data;
 

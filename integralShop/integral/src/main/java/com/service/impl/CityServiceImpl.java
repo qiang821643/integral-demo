@@ -29,13 +29,13 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public Result findCityByCityName(String cityName) {
-        log.info("地名",cityName);
+        //log.info("地名",cityName);
         List<Map<String,Object>> cityList = cityMapper.findCityByCityName(cityName);
         Result result = new Result();
         Map<String,Object> map = new HashMap<>();
         if(cityList!=null && !cityList.isEmpty()){
             String code = String.valueOf(cityList.get(0).get("city_code"));
-            result.setCode(ResultCodeEnum.SUCCESS);
+            result.setCode(ResultCodeEnum.SUCCESS.getCode());
             if(!StringUtils.isBlank(code)){
                 map.put("url", Constant.URL +code);
                 result.setData(map);
@@ -46,7 +46,7 @@ public class CityServiceImpl implements CityService {
             }
 
         }else{
-            result.setCode(ResultCodeEnum.FIAL);
+            result.setCode(ResultCodeEnum.FIAL.getCode());
             result.setMsg("没有这个市/县");
             return result;
         }

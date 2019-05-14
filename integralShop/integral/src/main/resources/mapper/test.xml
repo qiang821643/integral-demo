@@ -3,7 +3,7 @@
 <mapper namespace="com.mapper.TestMybatis">
 	
 	<select id="demo" resultType="map">
-		select * from integral_customer
+		select * from sys_user
 	</select>
 
 </mapper>

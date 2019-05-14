@@ -1,7 +1,6 @@
 package com.integralenum;
 
 
-import lombok.Data;
 import lombok.Getter;
 
 /**
@@ -13,10 +12,10 @@ import lombok.Getter;
 @Getter
 public enum ResultCodeEnum {
 
-      SUCCESS("0"),FIAL("1"),EXCEPTION("2");
-      private final String code;
+      SUCCESS(0),FIAL(1),EXCEPTION(2);
+      private final int code;
 
-      private ResultCodeEnum(String code){
+      private ResultCodeEnum(int code){
           this.code=code;
       }
 

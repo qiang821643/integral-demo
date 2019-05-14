@@ -4,7 +4,7 @@
 
 <mapper namespace="com.mapper.CityMapper">
 
-        <select id="findCityByCityName" parameterType="String" resultType="map">
+        <select id="findCityByCityName" parameterType="java.lang.String" resultType="map">
             select * from city
             <where>
                 <if test="cityName!=null and cityName!='' ">
